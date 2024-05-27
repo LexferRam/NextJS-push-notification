@@ -20,7 +20,11 @@ const useFCM = () => {
                     console.log(result)
                     if (result === "granted") {
                         navigator.serviceWorker.ready.then((registration) => {
-                            registration.showNotification(payload.notification.title);
+                            registration.showNotification(payload.notification.title, {
+                                body: payload.notification?.title,
+                                icon: "https://ums-eight.vercel.app/_next/image?url=%2Flogo9.png&w=256&q=75",
+                                tag: "Prueba de Lexfer",
+                              });
                         });
                     }
                 });
