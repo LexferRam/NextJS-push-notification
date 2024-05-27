@@ -13,23 +13,17 @@ const useFCM = () => {
     useEffect(() => {
         if ('serviceWorker' in navigator) {
             const fcmmessaging = messaging();
-            const unsubscribe = onMessage(fcmmessaging, (payload) => {
+            const unsubscribe = onMessage(fcmmessaging, async (payload) => {
                 toast.info(payload.notification?.title);
 
-
-                // // Extract notification data from the payload
-                // const title = payload.notification.title;
-                // const body = payload.notification.body;
-                // const icon = ''// payload.notification.icon || 'your-notification-icon.png'; // Optional default icon
-
-                // // Create a notification object with options
-                // const notification = new Notification(title, {
-                //     body,
-                //     icon,
-                //     clickAction: 'your-action-on-click.html' // Optional action URL on notification click
-                // });
-
-
+                Notification.requestPermission().then((result) => {
+                    console.log(result)
+                    if (result === "granted") {
+                        navigator.serviceWorker.ready.then((registration) => {
+                            registration.showNotification(payload.notification.title);
+                        });
+                    }
+                });
 
                 setMessages((prev) => [...prev, payload]);
             });
