@@ -7,8 +7,8 @@ export default function Home() {
   const {fcmToken}  = useFCM();
 
   return (
-    <main className="flex w-full flex-col items-center justify-between p-24">
-      <div className="w-[800px]">
+    <main className="flex w-full flex-col items-center justify-between p-24 overflow-scroll">
+      <div className="w-full" style={{color: 'black'}}>
         Token: {fcmToken}
       </div>
     </main>
