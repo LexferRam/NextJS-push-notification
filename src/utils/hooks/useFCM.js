@@ -12,7 +12,7 @@ const useFCM = () => {
     const handleSubscription = async () => {
         console.log('first')
         await retrieveToken();
-        alert(fcmToken)
+        
         console.log(fcmToken)
         // if (!fcmToken) return;
         if ('serviceWorker' in navigator) {
