@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useFCMToken from "./useFCMToken";
 import { messaging } from "../firebase";
 
@@ -6,15 +6,14 @@ import { toast } from "react-toastify";
 import { onMessage } from "firebase/messaging";
 
 const useFCM = () => {
-    const {retrieveToken, fcmToken} = useFCMToken();
     const [messages, setMessages] = useState([]);
+    const {retrieveToken, fcmToken} = useFCMToken();
 
     const handleSubscription = async () => {
         console.log('first')
         await retrieveToken();
         
         console.log(fcmToken)
-        // if (!fcmToken) return;
         if ('serviceWorker' in navigator) {
             const fcmmessaging = messaging();
             const unsubscribe = onMessage(fcmmessaging, async (payload) => {
@@ -39,7 +38,6 @@ const useFCM = () => {
         }
     
     }
-
 
     // useEffect(() => {
     //     if ('serviceWorker' in navigator) {

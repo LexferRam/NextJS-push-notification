@@ -1,7 +1,5 @@
 importScripts('https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/10.12.1/firebase-messaging-compat.js');
-// importScripts('https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js');
-// importScripts('https://www.gstatic.com/firebasejs/8.8.0/firebase-messaging.js');
 
 const firebaseConfig = {
     apiKey: "AIzaSyD6Y4hEHe1kPuU2wpAJoDdelNHCM7ELxjU",
@@ -18,7 +16,9 @@ const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
     console.log('Received background message ', payload);
+
     const notificationTitle = payload.notification.title;
+
     const notificationOptions = {
         body: payload.notification.body,
         icon: notificationTitle//payload.notification.icon
