@@ -9,7 +9,7 @@ function getAccessToken() {
         var jwtClient = new google.auth.JWT(
             process.env.CLIENT_EMAIL,//key.client_email,
             null,
-            PRIVATE_KEY,//key.private_key,
+            process.env.PRIVATE_KEY,//key.private_key,
             SCOPES,
             null
         );
