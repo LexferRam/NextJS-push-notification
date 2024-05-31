@@ -11,7 +11,7 @@ const NotificationForm = () => {
 
     const onSubmit = async (data) => {
 
-        const respAccessToken = await axios(`${process.env.NEXT_PUBLIC_BASE_API}/api`)
+        const respAccessToken = await axios('https://next-js-push-notification.vercel.app/api')
         console.log(respAccessToken.data.token)
 
         console.log(data)
