@@ -11,7 +11,7 @@ const NotificationForm = () => {
 
     const onSubmit = async (data) => {
 
-        const respAccessToken = await axios(`http://localhost:3000/api`)
+        const respAccessToken = await axios(`${process.env.NEXT_PUBLIC_BASE_API}/api`)
         console.log(respAccessToken.data.token)
 
         console.log(data)
