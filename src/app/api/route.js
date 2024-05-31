@@ -7,9 +7,9 @@ function getAccessToken() {
     return new Promise(function (resolve, reject) {
         // var key = require('./keys.json');
         var jwtClient = new google.auth.JWT(
-            process.env.NEXT_PUBLIC_CLIENT_EMAIL,//key.client_email,
+            process.env.CLIENT_EMAIL,//key.client_email,
             null,
-            process.env.NEXT_PUBLIC_PRIVATE_KEY,//key.private_key,
+            PRIVATE_KEY,//key.private_key,
             SCOPES,
             null
         );

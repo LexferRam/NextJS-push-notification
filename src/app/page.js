@@ -8,7 +8,7 @@ export default function Home() {
   const { handleSubscription }  = useFCM();
 
   return (
-    <main className="flex w-full flex-col items-center justify-between p-2 overflow-scroll mb-6">
+    <main className="flex w-full h-[100vh] flex-col items-center justify-between p-2 overflow-scroll mb-6">
       <div className="w-full" style={{color: 'black'}}>
 
         <button 
