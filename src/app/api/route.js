@@ -23,6 +23,8 @@ function getAccessToken() {
     });
 }
 
+export const fetchCache = 'force-no-store'
+
 export async function GET(req, res) {
     let accessToken = await getAccessToken()
     return NextResponse.json({ token: accessToken }, { status: 201 })
