@@ -22,13 +22,7 @@ function getAccessToken() {
         });
     });
 }
-
-export const config = {
-    api: {
-        bodyParser: false,
-        externalResolver: true,
-    },
-};
+export const fetchCache = 'force-no-store'
 
 export const dynamic = 'force-dynamic';
 
