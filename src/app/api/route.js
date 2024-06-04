@@ -23,7 +23,14 @@ function getAccessToken() {
     });
 }
 
-export const fetchCache = 'force-no-store'
+export const config = {
+    api: {
+        bodyParser: false,
+        externalResolver: true,
+    },
+};
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(req, res) {
     let accessToken = await getAccessToken()
